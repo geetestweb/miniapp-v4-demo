@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/captcha/captcha",
+    "pages/bindDemo/bind"
+  ],
+  "plugins": {
+    "captcha4": {
+      "version": "2.1.0",
+      "provider": "wx1629d117cf9be937"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
