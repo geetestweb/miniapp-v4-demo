@@ -64,7 +64,7 @@ Page({
       console.log("请先完成验证！");
       return;
     }
-    tt.request({
+    swan.request({
       url:
         "https://gt4.geetest.com/demov4/demo/login?t=" + new Date().getTime(),
       method: "GET",
@@ -73,7 +73,7 @@ Page({
         captcha_id: self.data.captchaId,
       }),
       success: function (res) {
-        tt.showToast({
+        swan.showToast({
           title: res.data.result,
         });
       },

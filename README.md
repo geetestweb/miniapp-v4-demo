@@ -1,8 +1,8 @@
-## 极验字节跳动小程序插件接入指南
+## 极验百度小程序插件接入指南
 
 1.在本demo的components文件夹下获取组件，自行复制到项目
 
-2.参考百度小程序组件（[使用方法](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/custom-component/custom-component/)）
+2.参考百度小程序组件（[使用方法](https://smartprogram.baidu.com/docs/develop/framework/custom-component/)）
 
 3.在小程序后台添加以下合法域名  https://gcaptcha4.geetest.com    https://static.geetest.com
 
@@ -30,7 +30,7 @@
 }
 ```
 
-#### 页面ttml文件嵌入captcha4标签
+#### 页面swan文件嵌入captcha4标签
 
 ```html
 <captcha4 id="captcha" captchaId="{{captchaId}}" bindReady="captchaReady" bindSuccess='captchaSuccess' bindClose='captchaClose' bindError="captchaError" />
@@ -45,7 +45,7 @@
 代码示例：
 
 ```js
-// ttml
+// swan
 <captcha4  bindReady="captchaReady"/>
 //js  
 captchaReady:function(){
@@ -60,7 +60,7 @@ captchaReady:function(){
 **onError返回一个e，其中e.detail包含2个属性：code(错误码)、tips(错误提示)。我们在onError中要对challenge过期的情况做一个特殊的重置处理,代码如下：**
 
 ```js
-// ttml
+// swan
 <captcha4  bindError="captchaError"/>
 //js  
 captchaError: function (e) {
@@ -83,7 +83,7 @@ captchaError: function (e) {
 代码示例：
 
 ```js
-// ttml
+// swan
 <captcha4  bindSuccess="captchaSuccess"/>
 //js  
 captchaSuccess:function(result){
@@ -102,7 +102,7 @@ captchaSuccess:function(result){
 代码示例：
 
 ```js
-// ttml
+// swan
 <captcha4  bindClose="captchaClose"/>
 //js      
 captchaClose:function(){
