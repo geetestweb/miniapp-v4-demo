@@ -2,7 +2,7 @@
 
 1.在本demo的components文件夹下获取组件，自行复制到项目
 
-2.参考百度小程序组件（[使用方法](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/custom-component/custom-component/)）
+2.参考字节小程序组件（[使用方法](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/guide/custom-component/custom-component/)）
 
 3.在小程序后台添加以下合法域名  https://gcaptcha4.geetest.com    https://static.geetest.com
 
