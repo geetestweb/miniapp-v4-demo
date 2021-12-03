@@ -6,12 +6,12 @@ Page({
   onReady: function(){
   },
   toSlide:function(){
-      my.navigateTo({
+      tt.navigateTo({
           url: '../captcha/captcha',
       })
   },
   toBind: function () {
-    my.navigateTo({
+      tt.navigateTo({
           url: '../bindDemo/bind',
       })
   }

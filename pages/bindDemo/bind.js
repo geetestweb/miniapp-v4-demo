@@ -1,16 +1,14 @@
 // miniprogram/pages/captcha.js
 
-const assign = '83ee748676c09d077c5c83e3b8a08e32';
+const assign = "83ee748676c09d077c5c83e3b8a08e32";
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
     captchaId: assign,
-    loadCaptcha: false
+    loadCaptcha: false,
   },
 
   /**
@@ -18,112 +16,101 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      loadCaptcha: true
-    })
+      loadCaptcha: true,
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  },
+  onShareAppMessage: function () {},
   captchaValidate: function () {
-    var self = this
-    var data = self.data.result
+    var self = this;
+    var data = self.data.result;
+
+    console.log(data);
+
     if (!data) {
-      console.log('请先完成验证！')
-      return
+      console.log("请先完成验证！");
+      return;
     }
-    my.request({
-      url: 'https://gt4.geetest.com/demov4/demo/login?t=' + new Date().getTime(),
-      method: 'GET',
-      dataType: 'json',
+    tt.request({
+      url:
+        "https://gt4.geetest.com/demov4/demo/login?t=" + new Date().getTime(),
+      method: "GET",
+      dataType: "json",
       data: Object.assign({}, data, {
-        captcha_id: self.data.captchaId
+        captcha_id: self.data.captchaId,
       }),
       success: function (res) {
-        my.showToast({
-          content: res.data.result
-        })
+        tt.showToast({
+          title: res.data.result,
+        });
       },
       fail: function () {
-        console.log('error')
-      }
-    })
+        console.log("error");
+      },
+    });
   },
 
   captchaSuccess: function (result) {
-    console.log('captcha-Success!',result)
+    console.log("captcha-Success!");
     this.setData({
-      result: result
-    })
+      result: result.detail,
+    });
     this.captchaValidate();
   },
   captchaReady: function () {
-    console.log('captcha-Ready!')
-
+    console.log("captcha-Ready!");
   },
   captchaClose: function () {
-    console.log('captcha-Close!')
+    console.log("captcha-Close!");
   },
   captchaError: function (e) {
-    console.log('captcha-Error!', e.detail)
+    console.log("captcha-Error!", e.detail);
     // 这里对challenge9分钟过期的机制返回做一个监控，如果服务端返回code:21,tips:not proof，则重新调用重置
     if (e.detail.code === 21) {
-      var self = this
+      var self = this;
       // 需要先将插件销毁
-      self.setData({ loadCaptcha: false })
+      self.setData({ loadCaptcha: false });
       // 重新调用api1
-      self.captchaRegister()
+      self.captchaRegister();
     }
   },
   reset: function () {
-    var captcha4 = requirePlugin('captcha4');
-    captcha4.reset();
+    const captcha = this.selectComponent("#captcha");
+
+    captcha.reset();
   },
   btnSubmit: function () {
     // 进行业务逻辑处理
@@ -132,7 +119,8 @@ Page({
     this.verify();
   },
   verify: function () {
-    var captcha4 = requirePlugin('captcha4');
-    captcha4.showCaptcha();
+    const captcha = this.selectComponent("#captcha");
+
+    captcha.showCaptcha();
   },
-})
+});

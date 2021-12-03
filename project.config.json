@@ -1,0 +1,22 @@
+{
+    "projectname": "miniapp-v4-demo",
+    "appid": "testAppId",
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "newFeature": false,
+        "postcss": false,
+        "autoCompile": true,
+        "mockUpdate": false,
+        "minified": false,
+        "localPlugins": false,
+        "nodeModules": false,
+        "scripts": false,
+        "mockLogin": false
+    },
+    "condition": {
+        "miniprogram": {
+            "current": -1
+        }
+    }
+}

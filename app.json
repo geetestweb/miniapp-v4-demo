@@ -1,13 +1,7 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/captcha/captcha",
-    "pages/bindDemo/bind"
-  ],
-  "plugins": {
-    "captcha4": {
-      "version": "*",
-      "provider": "2021002178617823"
-    }
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/captcha/captcha",
+        "pages/bindDemo/bind"
+    ]
 }
