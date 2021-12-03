@@ -1,7 +1,8 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/captcha/captcha",
-        "pages/bindDemo/bind"
-    ]
+  "pages": [
+    "pages/index/index",
+    "pages/captcha/captcha",
+    "pages/bindDemo/bind"
+  ],
+  "sitemapLocation": "sitemap.json"
 }

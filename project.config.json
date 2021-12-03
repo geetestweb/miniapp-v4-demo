@@ -1,22 +1,19 @@
 {
-    "projectname": "miniapp-v4-demo",
-    "appid": "testAppId",
-    "setting": {
-        "urlCheck": false,
-        "es6": true,
-        "newFeature": false,
-        "postcss": false,
-        "autoCompile": true,
-        "mockUpdate": false,
-        "minified": false,
-        "localPlugins": false,
-        "nodeModules": false,
-        "scripts": false,
-        "mockLogin": false
-    },
-    "condition": {
-        "miniprogram": {
-            "current": -1
-        }
-    }
+	"setting": {
+		"newFeature": true,
+		"urlCheck": false,
+		"es6": true,
+		"postcss": false,
+		"minified": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"uploadWithSourceMap": true,
+		"uglifyFileName": true,
+		"remoteDebugLogEnable": false,
+		"prefetch": false
+	},
+	"qqappid": "1108100302",
+	"projectname": "github-demo",
+	"scripts": {},
+	"condition": {}
 }

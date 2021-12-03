@@ -1,4 +1,4 @@
-<view tt-if="{{!btnLoading && btnShow}}" class="geetest_captcha geetest_customTheme geetest_{{css_status}}">
+<view qq:if="{{!btnLoading && btnShow}}" class="geetest_captcha geetest_customTheme geetest_{{css_status}}">
   <view class="geetest_holder" bindtap='clickButton' style='width:{{styleConfig.btnWidth}};height:{{styleConfig.btnHeight}}'>
     <view class="geetest_btn_click"></view>
     <view class="geetest_mask">
@@ -17,42 +17,42 @@
     </view>
   </view>
 </view>
-<view tt-if="{{btnLoading && btnShow}}" class="geetest_holder geetest_wind">
+<view qq:if="{{btnLoading && btnShow}}" class="geetest_holder geetest_wind">
   <button>{{btn_tips}}</button>
 </view>
-<view tt-if="{{isBoxShow}}" class="geetest_popup_wrap geetest_popup geetest_customTheme  geetest_{{css_status ? css_status : ''}}">
+<view qq:if="{{isBoxShow}}" class="geetest_popup_wrap geetest_popup geetest_customTheme  geetest_{{css_status ? css_status : ''}}">
   <view class="geetest_popup_ghost" style="background-color: {{styleConfig.bgColor}} " catchtap='hidePopup'></view>
   <view class="geetest_box_wrap">
-    <view tt-if="{{!showBind}}" class="geetest_box geetest_{{fail_shake}}">
+    <view qq:if="{{!showBind}}" class="geetest_box geetest_{{fail_shake}}">
       <view class="geetest_header">
         <view class="geetest_title geetest_{{subwrap_css_animate}} {{text_layout ? 'geetest_space_between' : ''}}">
           <view class="geetest_text_tips">{{common_tips}}</view>
           <view class="geetest_ques_tips">
-            <image tt-key="index" class="geetest_img" tt-for="{{ans_imgs}}" src="{{item.src}}" alt=""></image>
+            <image qq:key="index" class="geetest_img" qq:for="{{ans_imgs}}" src="{{item.src}}" alt=""></image>
           </view>
         </view>
         <view class="geetest_status_bar"></view>
       </view>
       <view class="geetest_container">
         <view class="geetest_wrap">
-          <view tt-if="{{options.captchaType === 'match'}}" class="geetest_subitem geetest_match geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}" bindtap="subWrapClick">
-            <view tt-for="{{matchListBg}}" tt-key="index" tt-if="{{matchListBg.length > 0}}" class="geetest_item-{{item.class}}-bg geetest_backgd" style="left: {{item.left}}; top: {{item.top}};"></view>
-            <view tt-for="{{matchList}}" tt-key="index" class="geetest_item-{{item.class}} geetest_backimg {{ item.active ? 'geetest_active' : '' }}  {{item.css_animate}} " style="left: {{item.left}}; top: {{item.top}};" data-id="{{item.dataId}}" data-index="{{item.index}}">
+          <view qq:if="{{options.captchaType === 'match' }}" class="geetest_subitem geetest_match geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}" bindtap="subWrapClick">
+            <view qq:for="{{matchListBg}}" qq:key="index" qq:if="{{matchListBg.length > 0}}" class="geetest_item-{{item.class}}-bg geetest_backgd" style="left: {{item.left}}; top: {{item.top}};"></view>
+            <view qq:for="{{matchList}}" qq:key="index" class="geetest_item-{{item.class}} geetest_backimg {{ item.active ? 'geetest_active' : '' }}  {{item.css_animate}} " style="left: {{item.left}}; top: {{item.top}};" data-id="{{item.dataId}}" data-index="{{item.index}}">
               <view class="geetest_boom-{{item.class}} {{item.boom}}"></view>
               <view class="geetest_img-{{item.index}} geetest_item_{{item.type}}" style="background-image:{{item.bg}}"></view>
             </view>
             <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
           </view>
-          <view tt-if="{{options.captchaType === 'slide'}}" class="geetest_subitem geetest_slide geetest_{{subwrap_css_animate}} {{slide_move ? 'geetest_btn_move' : ''}} {{freeze ? 'geetest_freeze_action': ''}}">
+          <view qq:if="{{options.captchaType === 'slide'}}" class="geetest_subitem geetest_slide geetest_{{subwrap_css_animate}} {{slide_move ? 'geetest_btn_move' : ''}} {{freeze ? 'geetest_freeze_action': ''}}">
             <view class="geetest_window">
-              <view tt-if="{{slide.slice_bg}}" class="geetest_slice" style="width: {{slide.slice.width}}; height: {{slide.slice.height}}; top: {{slide.slice.top}};transform: translate({{translateX}}px, 0px);" catchtouchstart="slideButtonTouchStart" catchtouchmove="slideButtonTouchMove" catchtouchend="slideButtonTouchEnd">
+              <view qq:if="{{slide.slice_bg}}" class="geetest_slice" style="width: {{slide.slice.width}}; height: {{slide.slice.height}}; top: {{slide.slice.top}};transform: translate({{translateX}}px, 0px);" catchtouchstart="slideButtonTouchStart" catchtouchmove="slideButtonTouchMove" catchtouchend="slideButtonTouchEnd">
                 <view class="geetest_slice_bg" style="{{slide.slice_bg}}"></view>
                 <view class="geetest_slice_animate"></view>
               </view>
               <view class="geetest_bg" style="{{slide.bg}}"></view>
               <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
             </view>
-            <view tt-if="{{slide.slice_bg}}" class="geetest_slider">
+            <view qq:if="{{slide.slice_bg}}" class="geetest_slider">
               <view class="geetest_track">
                 <view class="geetest_process"></view>
                 <view class="geetest_track_tips"></view>
@@ -62,22 +62,22 @@
               </view>
             </view>
           </view>
-          <view tt-if="{{options.captchaType === 'word' || options.captchaType === 'icon' || options.captchaType === 'phrase'}}" class="geetest_subitem geetest_click geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}">
+          <view qq:if="{{options.captchaType === 'word' || options.captchaType === 'icon' || options.captchaType === 'phrase'}}" class="geetest_subitem geetest_click geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}">
             <view class="geetest_window">
-              <view tt-if="click.bg" class="geetest_bg" id="img-infos" style="{{click.bg}}" catchtap='addMarks'>
-                <view tt-if="marks.length > 0" tt-for="{{marks}}" class="geetest_square_mark geetest_mark_show" style="{{item.style}};background-color:{{styleConfig.color}};" tt-key="index" catchtap="remove" data-index="{{index}}">
+              <view qq:if="click.bg" class="geetest_bg" id="img-infos" style="{{click.bg}}" catchtap='addMarks'>
+                <view qq:if="marks.length > 0" qq:for="{{marks}}" class="geetest_square_mark geetest_mark_show" style="{{item.style}};background-color:{{styleConfig.color}};" qq:key="index" catchtap="remove" data-index="{{index}}">
                   <view class="geetest_mark_no">{{index+1}}</view>
                 </view>
               </view>
               <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
             </view>
-            <view tt-if="{{click.bg}}" class="geetest_submit {{disableSumitBtn ? 'geetest_disable' : ''}}" catchtap='validateBtn'>
+            <view qq:if="{{click.bg}}" class="geetest_submit {{disableSumitBtn ? 'geetest_disable' : ''}}" catchtap='validateBtn'>
               <view class="geetest_submit_tips">{{confirm}}</view>
             </view>
           </view>
-          <view tt-if="{{options.captchaType === 'nine'}}" class="geetest_subitem geetest_nine geetest_{{subwrap_css_animate}}">
+          <view qq:if="{{options.captchaType === 'nine'}}" class="geetest_subitem geetest_nine geetest_{{subwrap_css_animate}}">
             <view class="geetest_window {{freeze ? 'geetest_freeze_action': ''}}">
-              <view tt-for="{{nine}}" class="geetest_{{item.index}} geetest_item" tt-key='{{item.index}}' data-index="{{item.index}}" data-id="{{item.dataId}}" catchtap='addNineMarks'>
+              <view qq:for="{{nine}}" class="geetest_{{item.index}} geetest_item" qq:key='{{item.index}}' data-index="{{item.index}}" data-id="{{item.dataId}}" catchtap='addNineMarks'>
                 <view class="geetest_item_wrap">
                   <view class="geetest_imgs{{item.index}} geetest_item_img" style="background-image: {{item.bgImage}}; background-position: {{item.bgPosition}};"></view>
                 </view>
@@ -88,14 +88,14 @@
               <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
             </view>
           </view>
-          <view tt-if="{{options.captchaType === 'winlinze'  }}" class="geetest_subitem geetest_winlinze {{freeze ? 'geetest_freeze_action': ''}} geetest_{{subwrap_css_animate}} {{showEmpty ? 'geetest_showEmpty' : ''}}  ">
-            <view class="geetest_item-{{index}} geetest_item" tt-for="{{winlinze}}" tt-if="{{winlinze.length > 0}}" tt-key='{{item.index}}'>
-              <view tt-for="{{item}}" tt-for-item='sitem' tt-for-index='sindex' class="geetest_item-{{sitem.index[0]}}-{{sitem.index[1]}}-bg geetest_itembg geetest_view" style="left: {{sitem.left_bg}}; top: {{sitem.top_bg}};"></view>
-              <view tt-for="{{item}}" tt-for-item='sitem' tt-for-index='sindex' class="geetest_item-{{sitem.index[0]}}-{{sitem.index[1]}} geetest_itemimg {{ sitem.isEmpty ? 'geetest_isEmpty': ''}} {{sitem.active ? 'geetest_active' : ''}} {{sitem.animate}} geetest_view" style="{{sitem.bgImage}}; left:{{sitem.left}}; top:{{sitem.top}};" catchtap="winlinzeClick" data-id="{{sitem.index}}" data-type="{{sitem.type}}"></view>
+          <view qq:if="{{options.captchaType === 'winlinze'}}" class="geetest_subitem geetest_winlinze {{freeze ? 'geetest_freeze_action': ''}} geetest_{{subwrap_css_animate}} {{showEmpty ? 'geetest_showEmpty' : ''}}  ">
+            <view class="geetest_item-{{index}} geetest_item" qq:if="{{winlinze.length > 0}}" qq:for="{{winlinze}}"  qq:key='{{item.index}}' >
+              <view qq:for="{{item}}" qq:key='{{sindex}}' qq:for-item='sitem' qq:for-index='sindex' class="geetest_item-{{sitem.index[0]}}-{{sitem.index[1]}}-bg geetest_itembg geetest_view" style="left: {{sitem.left_bg}}; top: {{sitem.top_bg}};"></view>
+              <view qq:for="{{item}}" qq:key='{{sindex}}' qq:for-item='sitem' qq:for-index='sindex' class="geetest_item-{{sitem.index[0]}}-{{sitem.index[1]}} geetest_itemimg {{ sitem.isEmpty ? 'geetest_isEmpty': ''}} {{sitem.active ? 'geetest_active' : ''}} {{sitem.animate}} geetest_view" style="{{sitem.bgImage}}; left:{{sitem.left}}; top:{{sitem.top}};" catchtap="winlinzeClick" data-id="{{sitem.index}}" data-type="{{sitem.type}}"></view>
             </view>
             <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
           </view>
-          <view tt-if="{{options.captchaType === 'pencil'}}" class="geetest_subitem geetest_pencil geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}">
+          <view qq:if="{{options.captchaType === 'pencil'}}" class="geetest_subitem geetest_pencil geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}">
             <canvas class="geetest_bg " height="260" width="300" canvas-id="geetest_canvas" catchtouchstart="pencilTouchStart" catchtouchmove="pencilTouchMove" catchtouchend="pencilTouchEnd"></canvas>
             <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
           </view>
@@ -109,17 +109,17 @@
           <view class="geetest_refresh" bindtap="btnToRefresh">
             <view class="geetest_refresh_tips geetest_small_tip">刷新验证</view>
           </view>
-      
+   
         </view>
         <view class="geetest_footer_right">
-          <view tt-if="{{passCount}}" class="geetest_progress">{{passCount}}</view>
+          <view qq:if="{{passCount}}" class="geetest_progress">{{passCount}}</view>
           <view class="geetest_box_logo" href="https://www.geetest.com/first_page" target="_blank"></view>
         </view>
       </view>
       <view class="geetest_ai_detect"></view>
       <view class="geetest_ai_grid"></view>
     </view>
-    <view tt-if="{{showBind}}" class="geetest_bind_box">
+    <view qq:if="{{showBind}}" class="geetest_bind_box">
       <view class="geetest_bind_status_bar"></view>
       <view class="geetest_bind_container">
         <view class="geetest_bind_success_box">
@@ -141,4 +141,4 @@
     </view>
   </view>
 </view>
-<image tt-for="{{ imgLoadList }}" tt-key="*this" src="{{ item }}" data-src="{{ item }}" bindload="imgLoad" binderror="imgFail" style="width:0;height:0;opacity:0;display:none" />
+<image qq:for="{{ imgLoadList }}" qq:key="*this" src="{{ item }}" data-src="{{ item }}" bindload="imgLoad" binderror="imgFail" style="width:0;height:0;opacity:0;display:none" />

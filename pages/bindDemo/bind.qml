@@ -8,7 +8,7 @@
     <input placeholder='密码' id='password'></input>
   </view>
   <view id="captchabox" class='input'>
-    <captcha4 tt:if="{{loadCaptcha}}" id="captcha" captchaId="{{captchaId}}" bindReady="captchaReady" bindError="captchaError" useNativeButton='{{false}}' bindSuccess='captchaSuccess'  />
+    <captcha4 qq:if="{{loadCaptcha}}" id="captcha" captchaId="{{captchaId}}" bindReady="captchaReady" bindError="captchaError" useNativeButton='{{false}}' bindSuccess='captchaSuccess'  />
   </view>
   <button class='btn' id="btnSubmit" bindtap='btnSubmit'>提交</button>
   <button class='btn' id="resetSubmit" bindtap='reset'>重置</button>
