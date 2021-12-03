@@ -1,17 +1,13 @@
 Page({
   data: {
   },
-  onLoad: function() {
-  },
-  onReady: function(){
-  },
   toSlide:function(){
-      ks.navigateTo({
+      qa.navigateTo({
           url: '../captcha/captcha',
       })
   },
   toBind: function () {
-      ks.navigateTo({
+      qa.navigateTo({
           url: '../bindDemo/bind',
       })
   }

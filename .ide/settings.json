@@ -1,0 +1,11 @@
+{
+    "emmet.syntaxProfiles": {
+        "html": {
+            "self_closing_tag": true
+        }
+    },
+    "emmet.extensionsPath": [
+        "c:\\Users\\huangjundong\\.quick-app-ide\\extensions\\hap-team.hap-chimera-language-1.2.2\\res\\emmet"
+    ],
+    "hapsetting.toolkitConfig": "{\"type\":\"chimera\",\"path\":\"c:\\\\Users\\\\huangjundong\\\\.quick-app-ide\\\\extensions\\\\hap-team.hap-chimera-toolkit-2.0.1\\\\node_modules\\\\@vivo\\\\joyful\"}"
+}

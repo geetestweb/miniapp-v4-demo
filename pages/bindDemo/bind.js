@@ -64,7 +64,7 @@ Page({
       console.log("请先完成验证！");
       return;
     }
-    ks.request({
+    qa.request({
       url:
         "https://gt4.geetest.com/demov4/demo/login?t=" + new Date().getTime(),
       method: "GET",
@@ -73,7 +73,7 @@ Page({
         captcha_id: self.data.captchaId,
       }),
       success: function (res) {
-        ks.showToast({
+        qa.showToast({
           title: res.data.result,
         });
       },
@@ -120,6 +120,7 @@ Page({
   },
   verify: function () {
     const captcha = this.selectComponent("#captcha");
+
     captcha.showCaptcha();
   },
 });
