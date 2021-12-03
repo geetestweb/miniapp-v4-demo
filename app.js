@@ -1,5 +1,5 @@
-// app.js
+//app.js
 App({
-  onLaunch() {
+  onLaunch: function () {
   }
 })
