@@ -4,7 +4,7 @@
 | 参数            | 必填 | 类型    | 默认值 | 描述                                                         |
 | --------------- | ---- | ------- | ------ | ------------------------------------------------------------ |
 | captchaId       | Y    | string  | -      | 验证码ID                                                     |
-| language            | N    | string  | zh  | 语言 (zh - 中文，en - 英文)                                                        |
+| lang            | N    | string  | zh  | 语言 (zh - 中文，en - 英文)                                                        |
 | offline         | N    | boolean | false  | 强制宕机模式，会直接触发Success事件。（ true - 强制宕机， false - 正常 ） |
 | useNativeButton | N    | boolean | true   | 是否使用唤醒按钮  true - 带按钮模式， false - 无按钮模式（对于此类型，需要用户主动调用showCaptcha方法唤起验证界面 ） |
 | riskType        | N    | string  | -      | 当服务端配置了结合风控融合，此字段可指定验证形式             |
@@ -56,8 +56,8 @@ captcha4.showCaptcha();
 >代码示例:
 
 ```js
-// wxml
-<captcha4  bindReady="captchaReady"/>
+// axml
+<captcha4  onReady="captchaReady"/>
 //js  
 captchaReady:function(){
     console.log('captcha-Ready!')
@@ -65,14 +65,14 @@ captchaReady:function(){
 ```
 
 ## `Error`
-监听验证出错事件,刷新过多、静态资源加载失败、网络不给力等验证码能捕获到的错误(参考[ErrorCode](https://docs.geetest.com/gt4/apirefer/errorcode/web/))，都会触发Error回调。
+监听验证出错事件,刷新过多、静态资源加载失败、网络不给力等验证码能捕获到的错误(参考[ErrorCode](/gt4/apirefer/errorcode/web/))，都会触发Error回调。
 
 **Error返回一个e，其中e.detail包含2个属性：code(错误码)、tips(错误提示)。我们在Error中要对challenge过期的情况做一个特殊的重置处理,代码如下**
 >代码示例:
 
 ```js
-// wxml
-<captcha4  bindError="captchaError"/>
+// axml
+<captcha4  onError="captchaError"/>
 //js  
 captchaError: function (e) {
         console.log('captcha-Error!', e.detail)
@@ -90,8 +90,8 @@ captchaError: function (e) {
 >代码示例:
 
 ```js
-// wxml
-<captcha4  bindSuccess="captchaSuccess"/>
+// axml
+<captcha4  onSuccess="captchaSuccess"/>
 //js  
 captchaSuccess:function(result){
     console.log('captcha-Success!')
@@ -108,8 +108,8 @@ captchaSuccess:function(result){
 >代码示例:
 
 ```js
-// wxml
-<captcha4  bindClose="captchaClose"/>
+// axml
+<captcha4  onClose="captchaClose"/>
 //js      
 captchaClose:function(){
     console.log('captcha-Close!')

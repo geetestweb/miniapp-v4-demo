@@ -71,13 +71,11 @@ Page({
   captchaValidate: function () {
     var self = this
     var data = self.data.result
-
-
     if (!data) {
       console.log('请先完成验证！')
       return
     }
-    wx.request({
+    my.request({
       url: 'https://gt4.geetest.com/demov4/demo/login?t=' + new Date().getTime(),
       method: 'GET',
       dataType: 'json',
@@ -85,8 +83,8 @@ Page({
         captcha_id: self.data.captchaId
       }),
       success: function (res) {
-        wx.showToast({
-          title: res.data.result
+        my.showToast({
+          content: res.data.result
         })
       },
       fail: function () {
@@ -96,10 +94,9 @@ Page({
   },
 
   captchaSuccess: function (result) {
-    console.log('captcha-Success!')
-    console.log(result);
+    console.log('captcha-Success!',result)
     this.setData({
-      result: result.detail
+      result: result
     })
   },
   captchaReady: function () {

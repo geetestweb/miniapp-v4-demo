@@ -6,12 +6,12 @@ Page({
   onReady: function(){
   },
   toSlide:function(){
-      wx.navigateTo({
+      my.navigateTo({
           url: '../captcha/captcha',
       })
   },
   toBind: function () {
-      wx.navigateTo({
+    my.navigateTo({
           url: '../bindDemo/bind',
       })
   }

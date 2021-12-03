@@ -1,0 +1,13 @@
+<view class='container'>
+  <view class='input'>
+    <input placeholder='用户名' id='username'></input>
+  </view>
+  <view class='input'>
+    <input placeholder='密码' id='password'></input>
+  </view>
+  <view id="captchabox" class='input'>
+    <captcha4 a:if="{{loadCaptcha}}" id="captcha" captchaId="{{captchaId}}" onReady="captchaReady" onError="captchaError" useNativeButton='{{false}}' onSuccess='captchaSuccess'  />
+  </view>
+  <button class='btn' id="btnSubmit" onTap='btnSubmit'>提交</button>
+  <button class='btn' id="resetSubmit" onTap='reset'>重置</button>
+</view>
