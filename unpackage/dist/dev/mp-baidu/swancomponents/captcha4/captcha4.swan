@@ -1,0 +1,146 @@
+<view s-if="{{!btnLoading && btnShow}}" class="geetest_captcha geetest_customTheme geetest_{{css_status}}">
+  <view class="geetest_holder" bindtap='clickButton' style='width:{{styleConfig.btnWidth}};height:{{styleConfig.btnHeight}}'>
+    <view class="geetest_btn_click"></view>
+    <view class="geetest_mask">
+      <view class="geetest_mask_layer"></view>
+    </view>
+    <view class="geetest_content">
+      <view class="geetest_gradient_bar"></view>
+      <view class="geetest_tip_container">
+        <view class="geetest_tips_wrap">
+          <view class="geetest_err_tips">{{err_tips}}</view>
+          <view class="geetest_tip" catchtap='btnErrToReset'>{{btn_tips}}</view>
+        </view>
+        <view class="geetest_logo"></view>
+      </view>
+      <view class="geetest_err_code">{{err_code}}</view>
+    </view>
+  </view>
+</view>
+<view s-if="{{btnLoading && btnShow}}" class="geetest_holder geetest_wind">
+  <button>{{btn_tips}}</button>
+</view>
+<view s-if="{{isBoxShow}}" class="geetest_popup_wrap geetest_popup geetest_customTheme  geetest_{{css_status ? css_status : ''}}">
+  <view class="geetest_popup_ghost" style="background-color: {{styleConfig.bgColor}} " catchtap='hidePopup'></view>
+  <view class="geetest_box_wrap">
+    <view s-if="{{!showBind}}" class="geetest_box geetest_{{fail_shake}}">
+      <view class="geetest_header">
+        <view class="geetest_title geetest_{{subwrap_css_animate}} {{text_layout ? 'geetest_space_between' : ''}}">
+          <view class="geetest_text_tips">{{common_tips}}</view>
+          <view class="geetest_ques_tips">
+            <image s-key="index" class="geetest_img" s-for="{{ans_imgs}}" src="{{item.src}}" alt=""></image>
+          </view>
+        </view>
+        <view class="geetest_status_bar"></view>
+      </view>
+      <view class="geetest_container">
+        <view class="geetest_wrap">
+          <view s-if="{{options.captchaType === 'match' && matchListBg.length > 0}}" class="geetest_subitem geetest_match geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}" bindtap="subWrapClick">
+            <view s-for="{{matchListBg}}" s-key="index" class="geetest_item-{{item.class}}-bg geetest_backgd" style="left: {{item.left}}; top: {{item.top}};"></view>
+            <view s-for="{{matchList}}" s-key="index" class="geetest_item-{{item.class}} geetest_backimg {{ item.active ? 'geetest_active' : '' }}  {{item.css_animate}} " style="left: {{item.left}}; top: {{item.top}};" data-id="{{item.dataId}}" data-index="{{item.index}}">
+              <view class="geetest_boom-{{item.class}} {{item.boom}}"></view>
+              <view class="geetest_img-{{item.index}} geetest_item_{{item.type}}" style="background-image:{{item.bg}}"></view>
+            </view>
+            <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
+          </view>
+          <view s-if="{{options.captchaType === 'slide'}}" class="geetest_subitem geetest_slide geetest_{{subwrap_css_animate}} {{slide_move ? 'geetest_btn_move' : ''}} {{freeze ? 'geetest_freeze_action': ''}}">
+            <view class="geetest_window">
+              <view s-if="{{slide.slice_bg}}" class="geetest_slice" style="width: {{slide.slice.width}}; height: {{slide.slice.height}}; top: {{slide.slice.top}};transform: translate({{translateX}}px, 0px);" catchtouchstart="slideButtonTouchStart" catchtouchmove="slideButtonTouchMove" catchtouchend="slideButtonTouchEnd">
+                <view class="geetest_slice_bg" style="{{slide.slice_bg}}"></view>
+                <view class="geetest_slice_animate"></view>
+              </view>
+              <view class="geetest_bg" style="{{slide.bg}}"></view>
+              <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
+            </view>
+            <view s-if="{{slide.slice_bg}}" class="geetest_slider">
+              <view class="geetest_track">
+                <view class="geetest_process"></view>
+                <view class="geetest_track_tips"></view>
+                <view id="geetest_slide_btn" class="geetest_btn" style="transform: translate({{translateX}}px, 0px);" catchtouchstart="slideButtonTouchStart" catchtouchmove="slideButtonTouchMove" catchtouchend="slideButtonTouchEnd">
+                  <view class="geetest_arrow geetest_arrow_1"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view s-if="{{options.captchaType === 'word' || options.captchaType === 'icon' || options.captchaType === 'phrase'}}" class="geetest_subitem geetest_click geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}">
+            <view class="geetest_window">
+              <view s-if="click.bg" class="geetest_bg" id="img-infos" style="{{click.bg}}" catchtap='addMarks'>
+                <view s-if="marks.length > 0" s-for="{{marks}}" class="geetest_square_mark geetest_mark_show" style="{{item.style}};background-color:{{styleConfig.color}};" s-key="index" catchtap="remove" data-index="{{index}}">
+                  <view class="geetest_mark_no">{{index+1}}</view>
+                </view>
+              </view>
+              <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
+            </view>
+            <view s-if="{{click.bg}}" class="geetest_submit {{disableSumitBtn ? 'geetest_disable' : ''}}" catchtap='validateBtn'>
+              <view class="geetest_submit_tips">{{confirm}}</view>
+            </view>
+          </view>
+          <view s-if="{{options.captchaType === 'nine'}}" class="geetest_subitem geetest_nine geetest_{{subwrap_css_animate}}">
+            <view class="geetest_window {{freeze ? 'geetest_freeze_action': ''}}">
+              <view s-for="{{nine}}" class="geetest_{{item.index}} geetest_item" s-key='{{item.index}}' data-index="{{item.index}}" data-id="{{item.dataId}}" catchtap='addNineMarks'>
+                <view class="geetest_item_wrap">
+                  <view class="geetest_imgs{{item.index}} geetest_item_img" style="background-image: {{item.bgImage}}; background-position: {{item.bgPosition}};"></view>
+                </view>
+                <view class="geetest_ghost_{{item.index}} geetest_item_ghost {{item.isSelected ? 'geetest_selected' : ''}}">
+                  <view class="geetest_item_icon"></view>
+                </view>
+              </view>
+              <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
+            </view>
+          </view>
+          <view s-if="{{options.captchaType === 'winlinze'  && winlinze.length > 0}}" class="geetest_subitem geetest_winlinze {{freeze ? 'geetest_freeze_action': ''}} geetest_{{subwrap_css_animate}} {{showEmpty ? 'geetest_showEmpty' : ''}}  ">
+            <view class="geetest_item-{{index}} geetest_item" s-for="{{winlinze}}" s-key='{{item.index}}'>
+              <view s-for="{{item}}" s-for-item='sitem' s-for-index='sindex' class="geetest_item-{{sitem.index[0]}}-{{sitem.index[1]}}-bg geetest_itembg geetest_view" style="left: {{sitem.left_bg}}; top: {{sitem.top_bg}};"></view>
+              <view s-for="{{item}}" s-for-item='sitem' s-for-index='sindex' class="geetest_item-{{sitem.index[0]}}-{{sitem.index[1]}} geetest_itemimg {{ sitem.isEmpty ? 'geetest_isEmpty': ''}} {{sitem.active ? 'geetest_active' : ''}} {{sitem.animate}} geetest_view" style="{{sitem.bgImage}}; left:{{sitem.left}}; top:{{sitem.top}};" catchtap="winlinzeClick" data-id="{{sitem.index}}" data-type="{{sitem.type}}"></view>
+            </view>
+            <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
+          </view>
+          <view s-if="{{options.captchaType === 'pencil'}}" class="geetest_subitem geetest_pencil geetest_{{subwrap_css_animate}} {{freeze ? 'geetest_freeze_action': ''}}">
+            <canvas class="geetest_bg " height="260" width="300" canvas-id="geetest_canvas" catchtouchstart="pencilTouchStart" catchtouchmove="pencilTouchMove" catchtouchend="pencilTouchEnd"></canvas>
+            <view class="geetest_result_tips {{result_animate}}">{{result_tips}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="geetest_footer">
+        <view class="geetest_footer_left">
+          <view class="geetest_close" bindtap="btnToHidePopup">
+            <view class="geetest_close_tips geetest_small_tip">关闭验证</view>
+          </view>
+          <view class="geetest_refresh" bindtap="btnToRefresh">
+            <view class="geetest_refresh_tips geetest_small_tip">刷新验证</view>
+          </view>
+          <view class="geetest_feedback" href="http://www.geetest.com/contact#report" target="_blank">
+            <view class="geetest_feedback_tips geetest_small_tip">帮助反馈</view>
+          </view>
+        </view>
+        <view class="geetest_footer_right">
+          <view s-if="{{passCount}}" class="geetest_progress">{{passCount}}</view>
+          <view class="geetest_box_logo" href="https://www.geetest.com/first_page" target="_blank"></view>
+        </view>
+      </view>
+      <view class="geetest_ai_detect"></view>
+      <view class="geetest_ai_grid"></view>
+    </view>
+    <view s-if="{{showBind}}" class="geetest_bind_box">
+      <view class="geetest_bind_status_bar"></view>
+      <view class="geetest_bind_container">
+        <view class="geetest_bind_success_box">
+          <view class="geetest_success_show">
+            <view class="geetest_success_pie"></view>
+            <view class="geetest_success_filter"></view>
+            <view class="geetest_success_mask"></view>
+          </view>
+          <view class="geetest_success_correct">
+            <view class="geetest_success_icon"></view>
+          </view>
+        </view>
+        <view class="geetest_bind_icon"></view>
+        <view class="geetest_bind_err_icon"></view>
+        <view class="geetest_bind_user_tips"></view>
+        <view class="geetest_bind_tips">{{bind_tips}}</view>
+      </view>
+      <view class="geetest_bind_err_code"></view>
+    </view>
+  </view>
+</view>
+<image s-for="{{ imgLoadList }}" s-key="*this" src="{{ item }}" data-src="{{ item }}" bindload="imgLoad" binderror="imgFail" style="width:0;height:0;opacity:0;display:none" />

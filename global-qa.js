@@ -1,1 +1,0 @@
-global.wx = global.wx || global.qa

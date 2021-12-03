@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{title}}</text></view><block a:if="{{loadCaptcha}}"><captcha4 vue-id="8deb4120-1" id="captcha" captchaId="{{captchaId}}" onSuccess="captchaSuccess" data-com-type="wx" ref="__r" onVueInit="__l"></captcha4></block></view>

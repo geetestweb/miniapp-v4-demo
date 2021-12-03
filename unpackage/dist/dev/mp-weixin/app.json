@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "plugins": {
+    "captcha4": {
+      "version": "2.1.0",
+      "provider": "wx1629d117cf9be937",
+      "export": "index.js"
+    }
+  },
+  "usingComponents": {}
+}
