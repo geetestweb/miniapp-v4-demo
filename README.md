@@ -4,7 +4,7 @@
 | 参数            | 必填 | 类型    | 默认值 | 描述                                                         |
 | --------------- | ---- | ------- | ------ | ------------------------------------------------------------ |
 | captchaId       | Y    | string  | -      | 验证码ID                                                     |
-| lang            | N    | string  | zh  | 语言 (zh - 中文，en - 英文)                                                        |
+| language            | N    | string  | zh  | 语言 (zh - 中文，en - 英文)                                                        |
 | offline         | N    | boolean | false  | 强制宕机模式，会直接触发Success事件。（ true - 强制宕机， false - 正常 ） |
 | useNativeButton | N    | boolean | true   | 是否使用唤醒按钮  true - 带按钮模式， false - 无按钮模式（对于此类型，需要用户主动调用showCaptcha方法唤起验证界面 ） |
 | riskType        | N    | string  | -      | 当服务端配置了结合风控融合，此字段可指定验证形式             |
