@@ -1,1 +1,0 @@
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{title}}</text></view><block wx:if="{{loadCaptcha}}"><captcha4 vue-id="8dd740cc-1" id="captcha" captchaId="{{captchaId}}" data-event-opts="{{[['^Success',[['captchaSuccess']]]]}}" data-com-type="wx" bind:Success="__e" bind:__l="__l"></captcha4></block></view>
