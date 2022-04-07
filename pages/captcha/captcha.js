@@ -1,6 +1,6 @@
 // miniprogram/pages/captcha.js
 
-const assign = '83ee748676c09d077c5c83e3b8a08e32';
+const assign = 'be13c9e8983709233fd1ef8d70df68a0';
 
 Page({
   /**
@@ -67,6 +67,9 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  captchaFail(){
+    console.log('captchaFail')
   },
   captchaValidate: function () {
     var self = this

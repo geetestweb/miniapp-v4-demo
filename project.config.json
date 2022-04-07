@@ -40,7 +40,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.5",
-  "appid": "wx",
+  "appid": "wx1629d117cf9be937",
   "projectname": "github-miniapp-v4-demo",
   "debugOptions": {
     "hidedInDevtools": []

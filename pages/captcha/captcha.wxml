@@ -9,7 +9,7 @@
   </view>
   <view id="captchabox" class='input'>
     <label for='captcha'>完成验证:</label>
-    <captcha4 id="captcha" captchaId="{{captchaId}}" bindReady="captchaReady" bindError="captchaError" bindClose="captchaClose"  bindSuccess='captchaSuccess'  />
+    <captcha4 id="captcha" captchaId="{{captchaId}}" bindFail="captchaFail" bindReady="captchaReady" bindError="captchaError" bindClose="captchaClose"  bindSuccess='captchaSuccess'  />
   </view>
   <button class='btn' id="btnSubmit" bindtap='btnSubmit'>提交</button>
   <button class='btn' bindtap='btnReset'>reset</button>
