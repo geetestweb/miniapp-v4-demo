@@ -6,7 +6,7 @@
   ],
   "plugins": {
     "captcha4": {
-      "version": "2.5.0",
+      "version": "2.6.1",
       "provider": "wx1629d117cf9be937"
     }
   },
