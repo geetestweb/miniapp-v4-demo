@@ -1,1 +1,0 @@
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{a}}</text></view><captcha4 wx:if="{{b}}" class="r" u-r="captcha" captchaId="{{d}}" bindSuccess="{{e}}" riskType="{{f}}" useNativeButton="{{false}}" u-t="m" u-i="31d33f96-0" bind:__l="__l"/><button class="submit" bindtap="{{g}}"> 打开 </button></view>
