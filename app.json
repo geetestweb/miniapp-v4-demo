@@ -3,5 +3,9 @@
         "pages/index/index",
         "pages/captcha/captcha",
         "pages/bindDemo/bind"
-    ]
+    ],
+    
+    "usingComponents": {
+        "captcha4": "/components/captcha4/captcha4"
+      }
 }

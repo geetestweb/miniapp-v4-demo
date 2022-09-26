@@ -1,4 +1,4 @@
-<view s-if="!btnLoading && btnShow" class="geetest_captcha geetest_customTheme geetest_{{css_status}}">
+<view s-if="{{!btnLoading && btnShow}}" class="geetest_captcha geetest_customTheme geetest_{{css_status}}">
   <view class="geetest_holder" bindtap='clickButton' style='width:{{styleConfig.btnWidth}};height:{{styleConfig.btnHeight}}'>
     <view class="geetest_btn_click"></view>
     <view class="geetest_mask">
@@ -17,10 +17,10 @@
     </view>
   </view>
 </view>
-<view s-if="btnLoading && btnShow" class="geetest_holder geetest_wind">
+<view s-if="{{btnLoading && btnShow}}" class="geetest_holder geetest_wind">
   <button>{{btn_tips}}</button>
 </view>
-<view s-if="isBoxShow" class="geetest_popup_wrap geetest_popup geetest_customTheme  geetest_{{css_status ? css_status : ''}}">
+<view s-if="{{isBoxShow}}" class="geetest_popup_wrap geetest_popup geetest_customTheme  geetest_{{css_status ? css_status : ''}}">
   <view class="geetest_popup_ghost" style="background-color: {{styleConfig.bgColor}} " catchtap='hidePopup'></view>
   <view class="geetest_box_wrap">
     <view s-if="{{!showBind}}" class="geetest_box geetest_{{fail_shake}}">
@@ -115,7 +115,7 @@
         </view>
         <view class="geetest_footer_right">
           <view s-if="{{passCount}}" class="geetest_progress">{{passCount}}</view>
-          <view class="geetest_box_logo" href="https-//www.geetest.com/first_page" target="_blank"></view>
+          <view class="geetest_box_logo" href="https://www.geetest.com/first_page" target="_blank"></view>
         </view>
       </view>
       <view class="geetest_ai_detect"></view>
