@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "uni-app1",
+  "usingComponents": {
+    "captcha4": "../../ttcomponents/captcha4/captcha4"
+  }
+}
