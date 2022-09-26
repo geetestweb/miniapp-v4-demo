@@ -1,1 +1,0 @@
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{a}}</text></view><captcha4 a:if="{{b}}" id="captcha" captchaId="{{c}}" onSuccess="captchaSuccess" riskType="{{d}}" useNativeButton="{{false}}" u-t="m" u-i="e1dd6e98-0" onVI="__l"/><button class="submit" onTap="{{e}}"> 打开 </button></view>
