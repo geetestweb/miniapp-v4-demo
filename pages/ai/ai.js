@@ -1,8 +1,6 @@
 // miniprogram/pages/captcha.js
-const ai = '2e3cdd87ca5b729409e38bc17173702c';
-const ai1 = '473094de7ef952afdd6df09540f1953b';
-const assign = '83ee748676c09d077c5c83e3b8a08e32';
-const mnutiple = '61bb227961cd66292589dabd70cd7a5f';
+const ai = 'dd68c10db501ee386f3b0387842d29d0';
+
 Page({
   /**
    * 页面的初始数据
