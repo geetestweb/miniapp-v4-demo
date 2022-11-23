@@ -1,6 +1,6 @@
 // miniprogram/pages/captcha.js
 
-const assign = '83ee748676c09d077c5c83e3b8a08e32';
+const assign = 'dd68c10db501ee386f3b0387842d29d0';
 
 Page({
 
