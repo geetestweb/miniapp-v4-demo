@@ -35,9 +35,13 @@ export default class Index extends Component {
         <View className='btn' onClick={() => {this.openCaptcha() }}>打开验证码</View>
         <captcha4
           id="captcha4"
-            captchaId="54088bb07d2df3c46b79f80300b0abbe"
-            onSuccess={this.captchaSuccess}
-            useNativeButton={false}
+          captchaId="83ee748676c09d077c5c83e3b8a08e32"
+          hideSuccess={true}
+          bindReady={this.captchaReady}
+          onReady={this.captchaReady}
+          onSuccess={this.captchaSuccess}
+          bindSuccess={this.captchaSuccess}
+          useNativeButton={false}
           ></captcha4>
       </View>
     )
